@@ -1620,3 +1620,47 @@ a.text-hover:focus:after {
     opacity: 1 !important;
   }  
 }
+
+@keyframes successAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes errorAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-icon, .error-icon {
+  animation: successAnimation 0.6s ease-out;
+  fill: green;
+  width: 80px;
+  height: 80px;
+}
+
+.error-icon {
+  fill: red;
+  animation: errorAnimation 0.6s ease-out;
+}
+
+#successMessage {
+  display: none;
+}
