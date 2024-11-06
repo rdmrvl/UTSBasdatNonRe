@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Stylish - Shoes Online Store HTML Template</title>
+  <title>Stylish - Shoes Online Store</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="author" content="TemplatesJungle">
   <meta name="keywords" content="Online Store">
-  <meta name="description" content="Stylish - Shoes Online Store HTML Template">
+  <meta name="description" content="Stylish - Shoes Online Store">
 
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -211,7 +211,6 @@
     </div>
   </div>
   <!-- / quick view -->
-
   <div class="modal fade" id="modallong" tabindex="-1" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-fullscreen-md-down modal-md modal-dialog-centered">
       <div class="modal-content">
@@ -222,6 +221,7 @@
         <div class="modal-body">
           <div class="shopping-cart">
             <div class="shopping-cart-content">
+              <!-- Cart item template -->
               <div class="mini-cart cart-list p-0 mt-3">
                 <div class="mini-cart-item d-flex border-bottom pb-3">
                   <div class="col-lg-2 col-md-3 col-sm-2 me-4">
@@ -241,14 +241,13 @@
                     </div>
                     <div class="quantity-price d-flex justify-content-between align-items-center">
                       <div class="input-group product-qty">
-                        <button type="button"
-                          class="quantity-left-minus btn btn-light rounded-0 rounded-start btn-number"
+                        <button type="button" class="quantity-left-minus btn btn-light rounded-0 rounded-start btn-number"
                           data-type="minus">
                           <svg width="16" height="16">
                             <use xlink:href="#minus"></use>
                           </svg>
                         </button>
-                        <input type="text" name="quantity" class="form-control input-number quantity" value="1">
+                        <input type="text" name="quantity" class="form-control input-number quantity" value="1" data-price="99">
                         <button type="button" class="quantity-right-plus btn btn-light rounded-0 rounded-end btn-number"
                           data-type="plus">
                           <svg width="16" height="16">
@@ -260,73 +259,268 @@
                         <span class="product-price fs-6">$99</span>
                       </div>
                     </div>
-                    <!-- quantity-price -->
                   </div>
                 </div>
               </div>
-              <div class="mini-cart cart-list p-0 mt-3">
-                <div class="mini-cart-item d-flex border-bottom pb-3">
-                  <div class="col-lg-2 col-md-3 col-sm-2 me-4">
-                    <a href="#" title="product-image">
-                      <img src="images/single-product-thumb2.jpg" class="img-fluid" alt="single-product-item">
-                    </a>
-                  </div>
-                  <div class="col-lg-9 col-md-8 col-sm-8">
-                    <div class="product-header d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="product-title fs-6 me-5">Brand Shoes For Men</h4>
-                      <a href="" class="remove" aria-label="Remove this item" data-product_id="11913"
-                        data-cart_item_key="abc" data-product_sku="">
-                        <svg class="close">
-                          <use xlink:href="#close"></use>
-                        </svg>
-                      </a>
-                    </div>
-                    <div class="quantity-price d-flex justify-content-between align-items-center">
-                      <div class="input-group product-qty">
-                        <button type="button"
-                          class="quantity-left-minus btn btn-light rounded-0 rounded-start btn-number"
-                          data-type="minus">
-                          <svg width="16" height="16">
-                            <use xlink:href="#minus"></use>
-                          </svg>
-                        </button>
-                        <input type="text" name="quantity" class="form-control input-number quantity" value="1">
-                        <button type="button" class="quantity-right-plus btn btn-light rounded-0 rounded-end btn-number"
-                          data-type="plus">
-                          <svg width="16" height="16">
-                            <use xlink:href="#plus"></use>
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="price-code">
-                        <span class="product-price fs-6">$99</span>
-                      </div>
-                    </div>
-                    <!-- quantity-price -->
-                  </div>
-                </div>
-              </div>
-              <!-- cart-list -->
-              <div class="mini-cart-total d-flex justify-content-between py-4">
-                <span class="fs-6">Subtotal:</span>
-                <span class="special-price-code">
-                  <span class="price-amount amount fs-6" style="opacity: 1;">
-                    <bdi>
-                      <span class="price-currency-symbol">$</span>198.00 </bdi>
-                  </span>
-                </span>
-              </div>
-              <div class="modal-footer my-4 justify-content-center">
-                <button type="button" class="btn btn-red hvr-sweep-to-right dark-sweep" data-bs-toggle="modal"
-                  data-bs-target="#checkoutModal" data-bs-dismiss="modal">Checkout</button>
-              </div>
+  
+              <!-- Subtotal and Checkout Button -->
+<div class="mini-cart-total d-flex justify-content-between py-4">
+  <span class="fs-6">Subtotal:</span>
+  <span class="special-price-code">
+    <span class="price-amount amount fs-6" style="opacity: 1;">
+      <bdi>
+        <span class="price-currency-symbol">$</span><span id="cart-subtotal">198.00</span>
+      </bdi>
+    </span>
+  </span>
+</div>
+<div class="modal-footer my-4 justify-content-center">
+  <button type="button" class="btn btn-red hvr-sweep-to-right dark-sweep" data-bs-toggle="modal"
+    data-bs-target="#checkoutModal">Checkout</button>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="fs-5">Please review your order before proceeding with payment.</p>
+        <div class="cart-summary">
+          <!-- Dynamically rendered cart items will go here -->
+          <div id="checkoutCartItems" class="mb-3"></div>
+          <div class="d-flex justify-content-between">
+            <span class="fs-6">Total:</span>
+            <span class="special-price-code">
+              <span class="price-amount amount fs-6" id="checkout-total">
+                <bdi>
+                  <span class="price-currency-symbol">$</span><span id="checkoutSubtotal">198.00</span>
+                </bdi>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" id="confirmCheckoutBtn" class="btn btn-primary">Confirm and Pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to handle opening the checkout modal and updating values
+  function showCheckoutModal() {
+    // Populate modal with current cart values
+    const checkoutCartItemsContainer = document.getElementById('checkoutCartItems');
+    const checkoutSubtotalElement = document.getElementById('checkoutSubtotal');
+    
+    // Clear any previous content
+    checkoutCartItemsContainer.innerHTML = '';
+
+    // Populate with current cart items (assuming cartItems is a global array)
+    cartItems.forEach(item => {
+      const itemHtml = `
+        <div class="mini-cart-item d-flex justify-content-between align-items-center mb-3">
+          <div class="col-8">
+            <span>${item.quantity}x ${item.title}</span>
+          </div>
+          <div class="col-4 text-end">
+            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+          </div>
+        </div>
+      `;
+      checkoutCartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+    });
+
+    // Update subtotal
+    const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    checkoutSubtotalElement.textContent = subtotal.toFixed(2);
+  }
+
+  // Confirm Checkout Button Event
+  document.getElementById('confirmCheckoutBtn').addEventListener('click', function() {
+    alert('Checkout confirmed! Thank you for your purchase.');
+    // Clear the cart logic here or redirect to a confirmation page
+    cartItems = []; // Clear the cart (if applicable)
+    updateCartDisplay(); // Update cart display logic if necessary
+    const checkoutModal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+    checkoutModal.hide(); // Hide modal
+  });
+</script>
+
+
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- cart view -->
+  
+  <!-- JavaScript to manage quantities and calculate total -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // Elements for the cart and subtotal
+  const cartContainer = document.querySelector(".cart-list");
+  const cartSubtotalElement = document.getElementById("cart-subtotal");
+  let cartItems = [];
+
+  // Add to cart button logic
+  const addToCartButtons = document.querySelectorAll(".btn-light[data-bs-target='#modallong']");
+  addToCartButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const productCard = this.closest(".product-card");
+      const productId = productCard.dataset.id; // Get unique identifier
+      const productTitle = productCard.querySelector(".card-title").innerText;
+      const productPrice = parseFloat(productCard.querySelector(".card-price").innerText.replace('$', ''));
+      const productImage = productCard.querySelector(".product-image").src;
+
+      addItemToCart(productId, productTitle, productPrice, productImage);
+      updateCartDisplay();
+      updateCartSubtotal();
+    });
+  });
+
+  // Add item to the cart
+  function addItemToCart(id, title, price, image) {
+    // Check if item already exists in cart using unique ID
+    let existingItem = cartItems.find(item => item.id === id);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      // Create a new cart item object and add to the list
+      const newItem = {
+        id: id,
+        title: title,
+        price: price,
+        image: image,
+        quantity: 1
+      };
+      cartItems.push(newItem);
+    }
+  }
+
+  // Render the entire cart
+  function updateCartDisplay() {
+    // Clear the existing cart display
+    cartContainer.innerHTML = '';
+
+    // Render each item in the cart
+    cartItems.forEach(item => {
+      const cartItemHtml = `
+        <div class="mini-cart-item d-flex border-bottom pb-3">
+          <div class="col-lg-2 col-md-3 col-sm-2 me-4">
+            <a href="#" title="product-image">
+              <img src="${item.image}" class="img-fluid" alt="single-product-item">
+            </a>
+          </div>
+          <div class="col-lg-9 col-md-8 col-sm-8">
+            <div class="product-header d-flex justify-content-between align-items-center mb-3">
+              <h4 class="product-title fs-6 me-5">${item.title}</h4>
+              <a href="#" class="remove" aria-label="Remove this item" data-id="${item.id}">
+                <svg class="close">
+                  <use xlink:href="#close"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="quantity-price d-flex justify-content-between align-items-center">
+              <div class="input-group product-qty">
+                <button type="button" class="quantity-left-minus btn btn-light rounded-0 rounded-start btn-number">
+                  <svg width="16" height="16">
+                    <use xlink:href="#minus"></use>
+                  </svg>
+                </button>
+                <input type="text" name="quantity" class="form-control input-number quantity" value="${item.quantity}" data-id="${item.id}" data-price="${item.price}">
+                <button type="button" class="quantity-right-plus btn btn-light rounded-0 rounded-end btn-number">
+                  <svg width="16" height="16">
+                    <use xlink:href="#plus"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="price-code">
+                <span class="product-price fs-6">$${(item.price * item.quantity).toFixed(2)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      cartContainer.insertAdjacentHTML('beforeend', cartItemHtml);
+    });
+
+    attachCartEvents(); // Attach events for quantity changes and removal
+  }
+
+  // Attach events to the new elements in the cart
+  function attachCartEvents() {
+    const quantityInputs = cartContainer.querySelectorAll(".input-number");
+    const removeButtons = cartContainer.querySelectorAll(".remove");
+
+    // Quantity change buttons
+    cartContainer.querySelectorAll(".quantity-left-minus").forEach(minusButton => {
+      minusButton.addEventListener("click", function () {
+        updateQuantity(this, -1);
+      });
+    });
+
+    cartContainer.querySelectorAll(".quantity-right-plus").forEach(plusButton => {
+      plusButton.addEventListener("click", function () {
+        updateQuantity(this, 1);
+      });
+    });
+
+    // Remove button event
+    removeButtons.forEach(button => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id = this.dataset.id;
+        removeItemFromCart(id);
+      });
+    });
+  }
+
+  // Update the quantity of a cart item
+  function updateQuantity(button, change) {
+    const quantityInput = button.closest(".product-qty").querySelector(".input-number");
+    const id = quantityInput.dataset.id;
+    let cartItem = cartItems.find(item => item.id === id);
+
+    if (cartItem) {
+      cartItem.quantity += change;
+      if (cartItem.quantity <= 0) {
+        removeItemFromCart(id);
+      } else {
+        quantityInput.value = cartItem.quantity;
+      }
+    }
+    updateCartDisplay();
+    updateCartSubtotal();
+  }
+
+  // Remove item from the cart
+  function removeItemFromCart(id) {
+    cartItems = cartItems.filter(item => item.id !== id);
+    updateCartDisplay();
+    updateCartSubtotal();
+  }
+
+  // Update the subtotal of the cart
+  function updateCartSubtotal() {
+    const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    cartSubtotalElement.textContent = subtotal.toFixed(2);
+  }
+
+  // Start with an empty cart initially
+  cartContainer.innerHTML = '';
+  updateCartSubtotal();
+});
+
+</script>
+
 
   <!-- Login Modal -->
 <div class="modal fade" id="modallogin" tabindex="-1" aria-modal="true" role="dialog">
@@ -598,7 +792,7 @@
       <div class="product-content padding-small">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
           <div class="col mb-4">
-            <div class="product-card position-relative">
+            <div class="product-card position-relative" data-id="product1">
               <div class="card-img">
                 <img src="images/card-item1.jpg" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
@@ -626,7 +820,7 @@
             </div>
           </div>
           <div class="col mb-4">
-            <div class="product-card position-relative">
+            <div class="product-card position-relative" data-id="product2">
               <div class="card-img">
                 <img src="images/card-item2.jpg" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
@@ -654,7 +848,7 @@
             </div>
           </div>
           <div class="col mb-4">
-            <div class="product-card position-relative">
+            <div class="product-card position-relative" data-id="product3">
               <div class="card-img">
                 <img src="images/card-item3.jpg" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
@@ -682,7 +876,7 @@
             </div>
           </div>
           <div class="col mb-4">
-            <div class="product-card position-relative">
+            <div class="product-card position-relative" data-id="product4">
               <div class="card-img">
                 <img src="images/card-item4.jpg" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
@@ -710,7 +904,7 @@
             </div>
           </div>
           <div class="col mb-4">
-            <div class="product-card position-relative">
+            <div class="product-card position-relative" data-id="product5">
               <div class="card-img">
                 <img src="images/card-item5.jpg" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
