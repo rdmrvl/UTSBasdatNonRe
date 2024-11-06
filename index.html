@@ -331,88 +331,91 @@
   <!-- Login Modal -->
 <div class="modal fade" id="modallogin" tabindex="-1" aria-modal="true" role="dialog">
   <div class="modal-dialog modal-fullscreen-md-down modal-md modal-dialog-centered" role="document">
-      <div class="modal-content p-4">
-          <div class="modal-header mx-auto border-0">
-              <h2 class="modal-title fs-3 fw-normal">Login</h2>
-          </div>
-          <div class="modal-body">
-              <div class="login-detail">
-                  <div class="login-form p-0">
-                      <div class="col-lg-12 mx-auto">
-                          <form id="login-form" onsubmit="handleLogin(event)">
-                              <input type="text" id="login-username" name="username" placeholder="Username or Email Address *" class="mb-3 ps-3 text-input" required>
-                              <input type="password" id="login-password" name="password" placeholder="Password" class="ps-3 text-input" required>
-                              
-                              <div class="mb-3">
-                                  <label for="login-role" class="form-label">Login as</label>
-                                  <select class="form-control" id="login-role" name="role" required>
-                                      <option value="buyer">Buyer</option>
-                                      <option value="seller">Seller</option>
-                                  </select>
-                              </div>
-
-                              <div class="checkbox d-flex justify-content-between mt-4">
-                                  <p class="checkbox-form">
-                                      <label>
-                                          <input name="rememberme" type="checkbox" id="remember-me" value="forever"> Remember me
-                                      </label>
-                                  </p>
-                                  <p class="lost-password">
-                                      <a href="#">Forgot your password?</a>
-                                  </p>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-                  <div class="modal-footer mt-5 d-flex justify-content-center">
-                      <button type="submit" form="login-form" class="btn btn-red hvr-sweep-to-right dark-sweep">Login</button>
-                      <button type="button" class="btn btn-outline-gray hvr-sweep-to-right dark-sweep" data-bs-dismiss="modal">Cancel</button>
-                  </div>
-              </div>
-          </div>
+    <div class="modal-content p-10">
+      <div class="modal-header mx-auto border-0">
+        <h2 class="modal-title fs-3 fw-normal">Login</h2>
       </div>
+      <div class="modal-body">
+        <div class="login-detail">
+          <div class="login-form p-0">
+            <div class="col-lg-12 mx-auto">
+              <form id="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="login-username" name="username" placeholder="Username or Email Address *" class="mb-3 ps-3 text-input" required>
+                <input type="password" id="login-password" name="password" placeholder="Password" class="ps-3 text-input" required>
+                
+                <div class="mb-3">
+                  <label for="login-role" class="form-label">Login as</label>
+                  <select class="form-control" id="login-role" name="role" required>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                  </select>
+                </div>
+
+                <div class="checkbox d-flex justify-content-between mt-4">
+                  <p class="checkbox-form">
+                    <label>
+                      <input name="rememberme" type="checkbox" id="remember-me" value="forever"> Remember me
+                    </label>
+                  </p>
+                  <p class="lost-password">
+                    <a href="#">Forgot your password?</a>
+                  </p>
+                </div>
+              </form>
+              <p class="text-center mt-3">
+                Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#modalregister" data-bs-dismiss="modal">Register here</a>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer mt-5 d-flex justify-content-center">
+            <button type="submit" form="login-form" class="btn btn-red hvr-sweep-to-right dark-sweep">Login</button>
+            <button type="button" class="btn btn-outline-gray hvr-sweep-to-right dark-sweep" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-  <!-- Login -->
-
- <!-- Register Modal -->
+<!-- Register Modal -->
 <div class="modal fade" id="modalregister" tabindex="-1" aria-modal="true" role="dialog">
   <div class="modal-dialog modal-fullscreen-md-down modal-md modal-dialog-centered" role="document">
-      <div class="modal-content p-4">
-          <div class="modal-header mx-auto border-0">
-              <h2 class="modal-title fs-3 fw-normal">Register</h2>
-          </div>
-          <div class="modal-body">
-              <div class="register-detail">
-                  <div class="register-form p-0">
-                      <div class="col-lg-12 mx-auto">
-                          <form id="register-form" method="post" action="register_process.php">
-                              <input type="text" name="username" placeholder="Username *" class="mb-3 ps-3 text-input" required>
-                              <input type="email" name="email" placeholder="Email Address *" class="mb-3 ps-3 text-input" required>
-                              <input type="password" name="password" placeholder="Password *" class="mb-3 ps-3 text-input" required>
-                              <input type="password" name="confirm_password" placeholder="Confirm Password *" class="ps-3 text-input" required>
-                              
-                              <div class="mb-3">
-                                  <label for="register-role" class="form-label">Register sebagai</label>
-                                  <select class="form-control" id="register-role" name="role" required>
-                                      <option value="buyer">Buyer</option>
-                                      <option value="seller">Seller</option>
-                                  </select>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-                  <div class="modal-footer mt-5 d-flex justify-content-center">
-                      <button type="submit" form="register-form" class="btn btn-red hvr-sweep-to-right dark-sweep">Register</button>
-                      <button type="button" class="btn btn-outline-gray hvr-sweep-to-right dark-sweep" data-bs-dismiss="modal">Cancel</button>
-                  </div>
-              </div>
-          </div>
+    <div class="modal-content p-4">
+      <div class="modal-header mx-auto border-0">
+        <h2 class="modal-title fs-3 fw-normal">Register</h2>
       </div>
+      <div class="modal-body">
+        <div class="register-detail">
+          <div class="register-form p-0">
+            <div class="col-lg-12 mx-auto">
+              <form id="register-form" onsubmit="handleRegister(event)">
+                <input type="text" name="username" placeholder="Username *" class="mb-3 ps-3 text-input" required>
+                <input type="email" name="email" placeholder="Email Address *" class="mb-3 ps-3 text-input" required>
+                <input type="password" name="password" placeholder="Password *" class="mb-3 ps-3 text-input" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password *" class="ps-3 text-input" required>
+                
+                <div class="mb-3">
+                  <label for="register-role" class="form-label">Register as</label>
+                  <select class="form-control" id="register-role" name="role" required>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                  </select>
+                </div>
+              </form>
+              <p class="text-center mt-3">
+                Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#modallogin" data-bs-dismiss="modal">Login here</a>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer mt-5 d-flex justify-content-center">
+            <button type="submit" form="register-form" class="btn btn-red hvr-sweep-to-right dark-sweep">Register</button>
+            <button type="button" class="btn btn-outline-gray hvr-sweep-to-right dark-sweep" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
 
   <!-- Registration Success Modal -->
   <div class="modal fade" id="registrationSuccessModal" tabindex="-1" aria-labelledby="registrationSuccessModalLabel"
@@ -778,6 +781,20 @@
         } else if (role === 'seller') {
             window.location.href = 'manage_products.html';
         }
+    }
+
+    function handleRegister(event) {
+      event.preventDefault();
+  
+      // Validasi data atau simpan ke storage lokal (opsional)
+      // Logika sukses tanpa backend
+      alert("Registration successful! Redirecting to login...");
+  
+      // Setelah registrasi, alihkan ke modal login
+      const registerModal = new bootstrap.Modal(document.getElementById('modalregister'));
+      const loginModal = new bootstrap.Modal(document.getElementById('modallogin'));
+      registerModal.hide();
+      loginModal.show();
     }
     </script>
 </body>

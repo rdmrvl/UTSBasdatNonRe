@@ -971,6 +971,17 @@ a.text-hover:focus:after {
   color: var(--dark-gray-color);
 }
 
+#modallogin .modal-footer {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  gap: 1rem; /* Add space between buttons */
+}
+
+#modallogin .modal-footer .btn {
+  width: 100px; /* Set a consistent width for buttons */
+}
+
+
 /*----------------------------------------------*/
 /* 2 SITE STRUCTURE */
 /*----------------------------------------------*/
