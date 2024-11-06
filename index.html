@@ -784,18 +784,37 @@
     }
 
     function handleRegister(event) {
-      event.preventDefault();
-  
-      // Validasi data atau simpan ke storage lokal (opsional)
-      // Logika sukses tanpa backend
-      alert("Registration successful! Redirecting to login...");
-  
-      // Setelah registrasi, alihkan ke modal login
-      const registerModal = new bootstrap.Modal(document.getElementById('modalregister'));
-      const loginModal = new bootstrap.Modal(document.getElementById('modallogin'));
-      registerModal.hide();
-      loginModal.show();
+        event.preventDefault();
+
+        // Validasi data atau simpan ke storage lokal (opsional)
+        // Logika sukses tanpa backend
+        alert("Registration successful! Redirecting to login...");
+
+        // Simpan status registrasi sukses di localStorage
+        localStorage.setItem('registrationSuccessful', 'true');
+        
+        // Redirect to index.html
+        window.location.href = 'index.html';
+
+        // Setelah registrasi, alihkan ke modal login
+        const registerModal = new bootstrap.Modal(document.getElementById('modalregister'));
+        const loginModal = new bootstrap.Modal(document.getElementById('modallogin'));
+        registerModal.hide();
+        loginModal.show();
     }
+
+    // Cek status registrasi saat halaman dimuat ulang
+    window.addEventListener('load', function () {
+        if (localStorage.getItem('registrationSuccessful') === 'true') {
+            // Tampilkan modal login setelah refresh
+            const loginModal = new bootstrap.Modal(document.getElementById('modallogin'));
+            loginModal.show();
+            
+            // Reset status registrasi
+            localStorage.removeItem('registrationSuccessful');
+        }
+    });
+
     </script>
 </body>
 
